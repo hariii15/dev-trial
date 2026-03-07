@@ -152,16 +152,21 @@ G1 --> F2
 F2 --> H1
 H1 --> H2
 
+%% DARK THEME STYLING
+%% Backgrounds: #1a1a1a (Dark Gray) 
+%% Strokes: Neon variants for readability
 
-%% STYLING
-style DATA_INPUT fill:#E3F2FD,stroke:#1E88E5
-style DATA_PROCESS fill:#E8F5E9,stroke:#43A047
-style FEATURE_LAYER fill:#FFF3E0,stroke:#FB8C00
-style TRIGGER_LAYER fill:#F3E5F5,stroke:#8E24AA
-style TRIGGERS fill:#FCE4EC,stroke:#D81B60
-style CLAIM_LAYER fill:#E0F7FA,stroke:#00ACC1
-style FRAUD_LAYER fill:#FFF8E1,stroke:#F9A825
-style PAYOUT_LAYER fill:#ECEFF1,stroke:#546E7A
+style DATA_INPUT fill:#1a1a1a,stroke:#4dabf7,stroke-width:2px,color:#fff
+style DATA_PROCESS fill:#1a1a1a,stroke:#51cf66,stroke-width:2px,color:#fff
+style FEATURE_LAYER fill:#1a1a1a,stroke:#fcc419,stroke-width:2px,color:#fff
+style TRIGGER_LAYER fill:#1a1a1a,stroke:#be4bdb,stroke-width:2px,color:#fff
+style TRIGGERS fill:#1a1a1a,stroke:#ff6b6b,stroke-width:2px,color:#fff
+style CLAIM_LAYER fill:#1a1a1a,stroke:#20c997,stroke-width:2px,color:#fff
+style FRAUD_LAYER fill:#1a1a1a,stroke:#fab005,stroke-width:2px,color:#fff
+style PAYOUT_LAYER fill:#1a1a1a,stroke:#adb5bd,stroke-width:2px,color:#fff
+
+%% Node specific styling to ensure text remains white
+classDef default fill:#2d2d2d,stroke:#555,color:#fff;
 ```
 ### 7. Instant Compensation
 The calculated compensation is credited to the worker through the platform’s payout system, ensuring that delivery partners receive financial support without needing to manually file claims.
@@ -437,14 +442,18 @@ D3 --> C4
 
 C4 --> G
 
-%% STYLE COLORS WITH HIGH CONTRAST
-style USER_LAYER fill:#E3F2FD,stroke:#0D47A1,stroke-width:3px
-style FRONTEND_LAYER fill:#E8F5E9,stroke:#1B5E20,stroke-width:3px
-style BACKEND_LAYER fill:#FFF3E0,stroke:#E65100,stroke-width:3px
-style AI_LAYER fill:#F3E5F5,stroke:#4A148C,stroke-width:3px
-style DATA_LAYER fill:#ECEFF1,stroke:#263238,stroke-width:3px
-style EXTERNAL_LAYER fill:#FCE4EC,stroke:#880E4F,stroke-width:3px
-style PAYMENT_LAYER fill:#E0F7FA,stroke:#006064,stroke-width:3px
+%% DARK THEME STYLING
+%% Using #1a1a1a for containers and #2d2d2d for nodes
+style USER_LAYER fill:#1a1a1a,stroke:#4dabf7,stroke-width:2px,color:#fff
+style FRONTEND_LAYER fill:#1a1a1a,stroke:#51cf66,stroke-width:2px,color:#fff
+style BACKEND_LAYER fill:#1a1a1a,stroke:#fcc419,stroke-width:2px,color:#fff
+style AI_LAYER fill:#1a1a1a,stroke:#be4bdb,stroke-width:2px,color:#fff
+style DATA_LAYER fill:#1a1a1a,stroke:#adb5bd,stroke-width:2px,color:#fff
+style EXTERNAL_LAYER fill:#1a1a1a,stroke:#ff6b6b,stroke-width:2px,color:#fff
+style PAYMENT_LAYER fill:#1a1a1a,stroke:#20c997,stroke-width:2px,color:#fff
+
+%% Node specific styling
+classDef default fill:#2d2d2d,stroke:#444,color:#fff;
 ```
 > **Figure:** High-level architecture of Safra showing the interaction between the React client, Node.js API gateway, FastAPI AI services, Firebase data layer, and external disruption signals used for parametric insurance triggers.
 
