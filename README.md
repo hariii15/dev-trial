@@ -60,9 +60,109 @@ This monitoring is performed at regular intervals to detect disruption events af
 ### 5. Parametric Trigger Detection
 When predefined conditions are met—such as prolonged heavy rainfall, extreme heat, severe air pollution, delivery activity collapse, or platform downtime—the system identifies a disruption event. These triggers are validated using duration thresholds to ensure that only meaningful disruptions activate claims.
 
-### 6. Automated Claim Processing
+### 6. Disruption Detection & Claim Automation Pipeline
 Once a disruption is confirmed, Safra automatically calculates the payout based on the duration of the disruption and the worker’s coverage plan.
+```mermaid
+flowchart LR
 
+%% DATA SOURCES
+subgraph DATA_INPUT["External Data Sources"]
+A1[Weather API]
+A2[AQI API]
+A3[Delivery Activity Signals]
+end
+
+%% DATA PROCESSING
+subgraph DATA_PROCESS["Data Collection Layer"]
+B1[Scheduler / Cron Job]
+B2[Signal Aggregator]
+end
+
+%% FEATURE ENGINEERING
+subgraph FEATURE_LAYER["Feature Processing"]
+C1[Weather Feature Extraction]
+C2[Environmental Risk Metrics]
+C3[Delivery Activity Analysis]
+end
+
+%% TRIGGER ENGINE
+subgraph TRIGGER_LAYER["Disruption Detection Engine"]
+D1[Trigger Evaluation Logic]
+D2{Disruption Conditions Met?}
+end
+
+%% TRIGGERS
+subgraph TRIGGERS["Parametric Triggers"]
+E1[Heavy Rainfall]
+E2[Extreme Heat]
+E3[Severe AQI]
+E4[Delivery Activity Collapse]
+E5[Platform Downtime]
+end
+
+%% CLAIM SYSTEM
+subgraph CLAIM_LAYER["Claim Automation"]
+F1[Claim Processor]
+F2[Payout Calculation Engine]
+end
+
+%% FRAUD
+subgraph FRAUD_LAYER["Fraud Detection"]
+G1[Fraud Detection Model]
+end
+
+%% PAYOUT
+subgraph PAYOUT_LAYER["Compensation"]
+H1[Worker Compensation]
+H2[Razorpay Sandbox Payment]
+end
+
+%% FLOW
+A1 --> B2
+A2 --> B2
+A3 --> B2
+
+B1 --> B2
+
+B2 --> C1
+B2 --> C2
+B2 --> C3
+
+C1 --> D1
+C2 --> D1
+C3 --> D1
+
+D1 --> D2
+
+D2 --> E1
+D2 --> E2
+D2 --> E3
+D2 --> E4
+D2 --> E5
+
+E1 --> F1
+E2 --> F1
+E3 --> F1
+E4 --> F1
+E5 --> F1
+
+F1 --> G1
+G1 --> F2
+
+F2 --> H1
+H1 --> H2
+
+
+%% STYLING
+style DATA_INPUT fill:#E3F2FD,stroke:#1E88E5
+style DATA_PROCESS fill:#E8F5E9,stroke:#43A047
+style FEATURE_LAYER fill:#FFF3E0,stroke:#FB8C00
+style TRIGGER_LAYER fill:#F3E5F5,stroke:#8E24AA
+style TRIGGERS fill:#FCE4EC,stroke:#D81B60
+style CLAIM_LAYER fill:#E0F7FA,stroke:#00ACC1
+style FRAUD_LAYER fill:#FFF8E1,stroke:#F9A825
+style PAYOUT_LAYER fill:#ECEFF1,stroke:#546E7A
+```
 ### 7. Instant Compensation
 The calculated compensation is credited to the worker through the platform’s payout system, ensuring that delivery partners receive financial support without needing to manually file claims.
 
