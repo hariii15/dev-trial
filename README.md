@@ -264,6 +264,90 @@ For demonstration purposes, Safra integrates a **payment gateway sandbox (such a
 
 Safra follows a modular service-oriented architecture that separates the user interface, application logic, AI services, and data storage. This design ensures that the system remains scalable, maintainable, and capable of processing disruption signals in real time.
 
+## System Architecture
+
+```mermaid
+flowchart TD
+
+%% USER LAYER
+subgraph USER_LAYER["User Layer"]
+A[Delivery Partner]
+end
+
+%% FRONTEND
+subgraph FRONTEND_LAYER["Frontend"]
+B[React Web Application]
+end
+
+%% BACKEND
+subgraph BACKEND_LAYER["API Gateway - Node.js / Express"]
+C1[Authentication & User Management]
+C2[Policy Manager]
+C3[Trigger Engine]
+C4[Claim Processor]
+C5[Scheduler / Cron Jobs]
+end
+
+%% AI SERVICE
+subgraph AI_LAYER["AI Microservice - FastAPI"]
+D1[Risk Prediction Model]
+D2[Dynamic Premium Model]
+D3[Fraud Detection Model]
+end
+
+%% DATA LAYER
+subgraph DATA_LAYER["Cloud Database"]
+E[Firebase Firestore]
+end
+
+%% EXTERNAL DATA
+subgraph EXTERNAL_LAYER["External Data Sources"]
+F1[Weather API]
+F2[AQI API]
+F3[Delivery Activity Signals]
+end
+
+%% PAYMENT
+subgraph PAYMENT_LAYER["Payment System"]
+G[Razorpay Sandbox]
+end
+
+%% FLOW
+A --> B
+B --> C1
+C1 --> C2
+C2 --> E
+
+C3 --> F1
+C3 --> F2
+C3 --> F3
+
+C5 --> C3
+
+C3 --> C4
+C4 --> E
+
+C2 --> D1
+C2 --> D2
+C4 --> D3
+
+D1 --> E
+D2 --> E
+D3 --> C4
+
+C4 --> G
+
+%% STYLE COLORS WITH HIGH CONTRAST
+style USER_LAYER fill:#E3F2FD,stroke:#0D47A1,stroke-width:3px
+style FRONTEND_LAYER fill:#E8F5E9,stroke:#1B5E20,stroke-width:3px
+style BACKEND_LAYER fill:#FFF3E0,stroke:#E65100,stroke-width:3px
+style AI_LAYER fill:#F3E5F5,stroke:#4A148C,stroke-width:3px
+style DATA_LAYER fill:#ECEFF1,stroke:#263238,stroke-width:3px
+style EXTERNAL_LAYER fill:#FCE4EC,stroke:#880E4F,stroke-width:3px
+style PAYMENT_LAYER fill:#E0F7FA,stroke:#006064,stroke-width:3px
+```
+> **Figure:** High-level architecture of Safra showing the interaction between the React client, Node.js API gateway, FastAPI AI services, Firebase data layer, and external disruption signals used for parametric insurance triggers.
+
 ### Frontend Layer
 
 The **React frontend** provides the user interface for delivery partners. Through this interface, workers can register, enroll in weekly insurance coverage, view their policy details, and track disruption-triggered payouts. The frontend communicates with the backend through secure API requests.
