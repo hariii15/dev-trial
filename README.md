@@ -534,3 +534,49 @@ The system can be extended to support multiple cities and regions by incorporati
 Future implementations can integrate production-grade payment systems and digital wallets to enable instant compensation transfers to delivery partners when disruption events are detected.
 
 By continuously improving its data sources, AI models, and platform integrations, Safra has the potential to evolve into a scalable insurance infrastructure designed specifically for the rapidly growing gig economy.
+
+## Development Roadmap
+
+The development of Safra is structured as a phased roadmap that gradually builds the core components of the platform. Each stage focuses on implementing and integrating key system capabilities, from initial research and architecture design to disruption detection and automated payouts.
+
+### Safra Development Roadmap
+
+```mermaid
+timeline
+title Safra Development Roadmap
+
+Week 1 : Problem Research
+        : Persona Definition
+        : Architecture Design
+        : Tech Stack Finalization
+
+Week 2 : Frontend Setup
+        : Backend API Gateway Setup
+        : Firebase Database Integration
+        : Basic UI for Worker Registration
+        : Initial Risk Model Prototype
+
+Week 3 : AI Model Development
+        : Risk Prediction Model
+        : Dynamic Premium Calculation Model
+        : Fraud Detection Model
+        : FastAPI AI Microservice Deployment
+
+Week 4 : Trigger Engine Implementation
+        : Weather API Integration
+        : AQI API Integration
+        : Delivery Activity Monitoring
+        : Disruption Detection Logic
+
+Week 5 : Claim Automation System
+        : Claim Processor Development
+        : Duration-Based Payout Logic
+        : Razorpay Sandbox Integration
+        : Worker Dashboard
+
+Week 6 : System Testing & Optimization
+        : Fraud Detection Validation
+        : End-to-End System Integration
+        : Performance Optimization
+        : Final Demo Preparation
+```
