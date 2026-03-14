@@ -267,3 +267,162 @@ J --> K[Payout Calculation]
 
 K --> L[Instant Worker Compensation]
 ```
+## Parametric Trigger System
+
+Safra uses a **parametric insurance model**, where payouts are automatically triggered when predefined disruption conditions are detected.
+
+Instead of requiring workers to manually file claims, the platform continuously monitors external signals and activates compensation when specific thresholds are met.
+
+Each trigger is evaluated at regular intervals to determine whether a disruption has persisted long enough to meaningfully affect delivery operations.
+
+Only **verified disruptions** trigger insurance payouts.
+
+---
+
+### Trigger Conditions
+```mermaid
+
+flowchart TD
+    subgraph Triggers[" Disruption Triggers & Conditions"]
+        A["Heavy Rainfall\nIntensity > 50 mm/hour\nDuration ≥ 2 hours\nUnsafe road conditions reduce deliveries"]
+        B[" Extreme Heat\nTemperature > 42°C\nDuration ≥ 2 hours\nOutdoor work becomes unsafe"]
+        C[" Severe Air Pollution\nAQI > 350\nDuration ≥ 2 hours\nHazardous air conditions"]
+        D[" Delivery Activity Collapse\nOrders/hour drop ≥ 70%\nDuration ≥ 2 hours\nWorkers cannot earn income"]
+        E["Platform Downtime\nOrders/hour = 0\nDuration ≥ 1 hour\nPlatform outage prevents deliveries"]
+    end
+
+    A --> B --> C --> D --> E---
+```
+### Delivery Activity Collapse Trigger
+
+One of the most important triggers in Safra is the **Order Collapse Trigger**, which reflects the real earning conditions of gig workers.
+
+Instead of relying only on environmental data, Safra also monitors **delivery activity signals**.
+
+Example:
+average_orders_per_hour drops by 70%
+for 2 consecutive hours
+
+
+When this condition occurs, the system identifies that **workers are unable to earn income**, even if weather conditions are normal.
+
+This ensures that Safra protects riders not only from environmental disruptions but also from **operational income collapse**.
+
+---
+
+### Multi-Signal Validation
+
+To avoid false triggers, Safra validates disruption events using **multiple signal sources**.
+
+Example:
+
+- weather API confirmation  
+- air quality API confirmation  
+- delivery activity signal analysis  
+
+This multi-source verification ensures that payouts are triggered **only when disruptions genuinely affect worker income**.
+
+---
+
+### Trigger Evaluation Pipeline
+
+```mermaid
+flowchart TD
+
+A[External Signals]
+
+A --> B[Weather Data]
+A --> C[AQI Data]
+A --> D[Delivery Activity Signals]
+
+B --> E[Trigger Evaluation Engine]
+C --> E
+D --> E
+
+E --> F{Conditions Met?}
+
+F -->|No| G[Continue Monitoring]
+
+F -->|Yes| H[Parametric Claim Trigger]
+
+H --> I[Payout Calculation]
+```
+## Insurance Model
+
+Safra follows a **weekly micro-insurance model** designed around the working patterns of gig delivery workers.
+
+Most delivery partners operate on **weekly earning cycles**, so Safra provides simple weekly coverage plans that workers can subscribe to and renew easily.
+
+The model combines **zone-based dynamic pricing**, **adaptive coverage plans**, and **duration-based payouts** to ensure both worker protection and system sustainability.
+
+---
+
+## Adaptive Weekly Coverage Plans
+
+Safra offers multiple insurance tiers so workers can choose coverage based on their income level and risk tolerance.
+
+| Plan | Weekly Premium | Coverage per Disruption Day |
+|-----|----------------|-----------------------------|
+| **Basic** | ₹20 | ₹200/day |
+| **Standard** | ₹35 | ₹400/day |
+| **Premium** | ₹50 | ₹700/day |
+
+This tiered structure ensures flexibility while keeping the insurance affordable for gig workers.
+
+---
+
+## Zone-Based Premium Pricing
+
+Unlike traditional insurance systems that price coverage at the **city level**, Safra calculates premiums based on **delivery zones**.
+
+This allows the system to reflect real operational risk differences between neighborhoods.
+
+Example factors used for zone pricing:
+
+- historical rainfall patterns  
+- air pollution levels  
+- delivery activity volatility  
+- traffic congestion trends  
+
+Workers operating in **low-risk zones** benefit from lower premiums, while **high-risk zones** receive adjusted pricing with higher protection.
+
+---
+
+## Duration-Based Compensation
+
+Safra calculates compensation **proportionally to the duration of disruption events**.
+
+Instead of paying a fixed amount for the entire day, the system calculates payouts based on the number of working hours affected.
+
+Example calculation:
+
+| Parameter | Value |
+|----------|------|
+| Daily Coverage | ₹400 |
+| Estimated Work Hours | 10 hours |
+| Hourly Compensation | ₹40/hour |
+
+If a disruption lasts **3 hours**, the worker receives:
+Payout = 3 × ₹40 = ₹120
+
+This ensures that compensation accurately reflects the **actual income loss duration**.
+
+---
+
+## Weekly Payout Limit
+
+To maintain sustainability of the insurance pool, Safra applies a **maximum payout cap per worker per week**.
+
+| Policy Limit | Value |
+|--------------|------|
+| Maximum Weekly Payout | **₹2000** |
+
+This cap allows workers to receive meaningful protection while ensuring the long-term stability of the insurance system.
+
+---
+
+## Income Stabilization Objective
+
+The goal of Safra is not to fully replace daily earnings but to provide **income stabilization** during disruptions.
+
+By offering **affordable weekly premiums and automated payouts**, Safra ensures that gig workers can maintain financial stability even when delivery operations are temporarily interrupted.
