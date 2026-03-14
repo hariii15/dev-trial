@@ -827,8 +827,15 @@ This architecture ensures scalability, maintainability, and efficient real-time 
 
 ---
 
-## High-Level Architecture
+## System Architecture
 
+Safra follows a **modular service-oriented architecture** that separates the user interface, backend services, AI computation, and data storage.
+
+This architecture ensures scalability, maintainability, and efficient real-time monitoring of disruption signals affecting gig delivery workers.
+
+---
+
+## High-Level Architecture
 ```mermaid
 flowchart TD
 
@@ -880,106 +887,83 @@ E --> C
 C --> F
 D3 --> H
 ```
-Architecture Layers
-1. User Layer
 
+---
+
+## Architecture Layers
+
+### 1. User Layer
 The delivery partner interacts with the system through the mobile-friendly React web application.
 
 Workers can:
+- Register and enroll in insurance
+- View policy coverage
+- Track disruption alerts
+- Monitor compensation payouts
 
-register and enroll in insurance
-
-view policy coverage
-
-track disruption alerts
-
-monitor compensation payouts
-
-2. Frontend Layer
-
+### 2. Frontend Layer
 The React frontend provides the user interface and communicates with backend services through secure API requests.
 
 Key frontend components include:
+- Worker dashboard
+- Policy management interface
+- Disruption alert notifications
+- Risk map visualization
 
-worker dashboard
-
-policy management interface
-
-disruption alert notifications
-
-risk map visualization
-
-3. API Gateway Layer
-
+### 3. API Gateway Layer
 The Node.js + Express backend acts as the central coordination layer of the platform.
 
 Responsibilities include:
+- Authentication and user management
+- Policy management
+- Disruption trigger evaluation
+- Payout processing
+- Communication with AI services
 
-authentication and user management
+> The backend also runs scheduled monitoring jobs that fetch environmental and operational data.
 
-policy management
-
-disruption trigger evaluation
-
-payout processing
-
-communication with AI services
-
-The backend also runs scheduled monitoring jobs that fetch environmental and operational data.
-
-4. AI Service Layer
-
+### 4. AI Service Layer
 Machine learning models are hosted in a separate FastAPI microservice.
 
 These models perform:
+- Disruption risk prediction
+- GWDI calculation
+- Oversupply detection
+- Fraud detection
 
-disruption risk prediction
+> Separating AI services ensures the platform remains scalable and modular.
 
-GWDI calculation
-
-oversupply detection
-
-fraud detection
-
-Separating AI services ensures the platform remains scalable and modular.
-
-5. Data Layer
-
-Safra stores all application data in Firebase Firestore.
+### 5. Data Layer
+Safra stores all application data in **Firebase Firestore**.
 
 Key stored data includes:
+- User profiles
+- Policy details
+- Disruption logs
+- Claim history
+- Payout records
 
-user profiles
+> Firestore allows real-time updates and scalable cloud storage.
 
-policy details
-
-disruption logs
-
-claim history
-
-payout records
-
-Firestore allows real-time updates and scalable cloud storage.
-
-6. External Data Layer
-
+### 6. External Data Layer
 The platform integrates multiple external APIs to monitor disruption signals affecting delivery operations.
 
 These include:
+- Weather APIs
+- Air quality APIs
+- Delivery activity signals
 
-weather APIs
+> These signals feed into the **Trigger Engine**, which evaluates parametric insurance conditions.
 
-air quality APIs
+### 7. Payment Layer
+Once a disruption claim is approved, Safra triggers compensation through the **Razorpay sandbox** payment system.
 
-delivery activity signals
+> This allows instant payout simulation during demonstrations.
 
-These signals feed into the Trigger Engine, which evaluates parametric insurance conditions.
+---
 
-7. Payment Layer
-
-Once a disruption claim is approved, Safra triggers compensation through the Razorpay sandbox payment system.
-
-This allows instant payout simulation during demonstrations.
+## Architecture Flow Summary
+```
 React Frontend
       ↓
 Node.js API Gateway
@@ -989,10 +973,11 @@ FastAPI AI Services
 Firebase Firestore
       ↓
 Razorpay Payment System
-``` id="0wq93h"
-
-This layered architecture enables Safra to deliver **real-time disruption monitoring, automated insurance claims, and instant compensation** for gig delivery workers.
 ```
+
+---
+
+This layered architecture enables Safra to deliver **real-time disruption monitoring**, **automated insurance claims**, and **instant compensation** for gig delivery workers.
 
 ## Future Scope
 
