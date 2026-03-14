@@ -1,591 +1,269 @@
+# Safra — AI-Powered Parametric Insurance for Gig Delivery Workers
+
+Safra is an **AI-driven parametric micro-insurance platform** designed to protect the income of **quick-commerce delivery partners** working for platforms such as **Zepto, Blinkit, and Instamart**.
+
+Gig delivery workers depend on continuous order flow to earn their daily income. However, external disruptions such as **extreme weather, severe air pollution, platform outages, or sudden delivery activity collapse** can instantly stop deliveries, causing riders to lose several hours of income.
+
+Traditional insurance products are not designed to address **short-term income interruptions**, leaving gig workers financially vulnerable during these disruptions.
+
+Safra solves this problem by introducing **automated parametric income protection**. Instead of requiring workers to file claims manually, the platform continuously monitors external signals such as **weather conditions, air quality levels, and delivery activity patterns**. When predefined disruption conditions are detected, Safra automatically triggers compensation.
+
+The system combines **AI-driven risk assessment, dynamic premium pricing, automated disruption detection, and fraud monitoring** to create a scalable safety net for gig economy workers operating in unpredictable urban environments.
+
+Safra does not just act as an insurance platform. By integrating **predictive disruption alerts, intelligent risk mapping, and worker assistance features**, the system helps riders make better decisions about **when and where to work**, enabling them to protect and stabilize their income.
+
 ## Project Overview
 
 **Safra** is an AI-powered parametric insurance platform designed to protect the income of quick-commerce delivery partners working for platforms such as **Zepto, Blinkit, and Instamart**.
 
-Delivery riders in the gig economy rely on continuous deliveries to earn their daily income. However, external disruptions such as **extreme weather, severe air pollution, and platform downtime** can instantly stop deliveries, causing workers to lose a significant portion of their earnings. Currently, gig workers have little to no financial protection against these uncontrollable events.
+Delivery riders in the gig economy rely on completing a high number of short-distance deliveries throughout the day to earn their income. However, external disruptions such as **heavy rainfall, extreme heat, severe air pollution, delivery activity collapse, and platform downtime** can suddenly halt delivery operations. When this happens, riders lose valuable working hours and experience immediate income loss.
 
-Safra addresses this challenge by providing **automated weekly micro-insurance for income loss**. Riders enroll in the platform and receive dynamically priced insurance coverage based on the operational risk of their delivery zone. The system continuously monitors real-time environmental conditions and platform activity using external data sources such as weather APIs, air quality indices, and delivery activity signals.
+Safra addresses this problem by providing **automated weekly micro-insurance for income protection**. Workers enroll in the platform and receive dynamically priced coverage based on the **risk profile of their delivery zone** rather than broad city-level averages.
 
-When predefined disruption conditions occur—such as **heavy rainfall, extreme heat, severe pollution, delivery activity collapse, or platform downtime**—Safra automatically triggers a parametric claim. Compensation is calculated based on the duration of the disruption and is credited to the worker without requiring manual claim submissions.
+The platform continuously analyzes environmental and operational signals using a composite **Gig Worker Disruption Index (GWDI)**, which aggregates multiple real-time risk factors including:
 
-By combining **AI-driven risk assessment, dynamic premium pricing, automated disruption detection, and fraud monitoring**, Safra provides a scalable safety net for gig economy workers and helps stabilize their income in unpredictable urban environments.
+- weather risk  
+- air pollution levels  
+- traffic and operational conditions  
+- delivery activity trends  
 
+By combining these signals, Safra calculates the probability of disruption events affecting delivery operations in a specific zone.
+
+When predefined disruption conditions are detected—such as **heavy rainfall, extreme heat, severe pollution, delivery activity collapse, or platform downtime**—the system automatically triggers a parametric claim. Compensation is calculated based on the **duration of the disruption** and is credited to the worker without requiring manual claim submissions.
+
+In addition to automated compensation, Safra also introduces **predictive disruption intelligence**. The system can forecast potential disruption risks before they occur and send alerts to workers, allowing them to:
+
+- plan work schedules  
+- switch to nearby zones with higher demand  
+- temporarily pause work during unsafe conditions  
+
+By combining **AI-driven risk modeling, dynamic pricing, predictive alerts, and automated payouts**, Safra creates a scalable financial protection system specifically designed for the operational realities of the gig economy.
 ## Target Persona
 
 Safra is designed for **quick-commerce delivery partners working on platforms such as Zepto, Blinkit, and Instamart**. These riders operate in dense urban areas and complete multiple short-distance deliveries throughout the day.
 
 A typical delivery partner works between **8–10 hours daily**, completing **2–4 deliveries per hour** within a small service radius of approximately **2–3 km**. Their earnings depend directly on the number of deliveries completed, making their income highly sensitive to interruptions in delivery operations.
 
-External disruptions such as **heavy rainfall, extreme heat, severe air pollution, or platform downtime** can significantly reduce delivery demand or temporarily halt operations altogether. During such periods, riders lose valuable working hours and experience immediate income loss.
+External disruptions such as **heavy rainfall, extreme heat, severe air pollution, or platform downtime** can significantly reduce delivery demand or temporarily halt operations. During such periods, riders lose valuable working hours and experience immediate income loss.
+
+Another major challenge riders face is **zone imbalance**, where too many riders operate in the same area, causing delivery opportunities to collapse even when demand exists elsewhere. Workers often have **little visibility into why their income suddenly drops**, making it difficult to adjust their working patterns.
 
 Despite these risks, gig delivery workers typically **do not have access to insurance products that protect short-term income loss** caused by environmental or operational disruptions.
 
-Safra specifically addresses this gap by providing **automated micro-insurance coverage for gig delivery workers**, ensuring that riders receive financial compensation when external disruptions prevent them from working.
+Safra specifically addresses this gap by providing **automated micro-insurance coverage and predictive risk insights** for gig delivery workers. In addition to financial protection, the platform helps riders make smarter work decisions by offering:
 
+- **predictive disruption alerts**
+- **zone-level risk insights**
+- **demand shift notifications**
+- **income protection during operational disruptions**
+
+This approach ensures that riders not only receive compensation during disruptions but also gain tools that help them **optimize when and where they work**.
 ## Solution Overview
 
-Safra is an AI-powered parametric micro-insurance platform designed to protect gig delivery workers from income loss caused by external disruptions. The platform provides delivery partners with a simple weekly insurance plan that automatically compensates them when events beyond their control prevent them from working.
+Safra is an **AI-powered parametric micro-insurance platform** designed to protect gig delivery workers from income loss caused by environmental and operational disruptions.
 
-Delivery partners can register on the platform and enroll in a weekly insurance plan. Safra uses AI-driven risk assessment to determine a dynamic premium based on the operational risk of the rider’s delivery zone. This ensures that workers operating in higher-risk areas receive appropriate coverage while maintaining fair pricing.
+Instead of traditional claim-based insurance, Safra follows a **parametric model**. This means payouts are automatically triggered when predefined disruption conditions occur, eliminating paperwork and manual claim verification.
 
-Once a rider is enrolled, the system continuously monitors multiple external data signals such as weather conditions, air quality levels, and delivery activity patterns. Safra identifies disruption events using predefined parametric triggers, including heavy rainfall, extreme heat, severe air pollution, delivery activity collapse, and platform downtime.
+The system continuously analyzes real-time environmental and operational signals such as:
 
-When a disruption is detected and persists beyond the defined threshold, the system automatically triggers a claim. The payout is calculated based on the duration of the disruption and credited to the worker without requiring manual claim submissions.
+- weather conditions  
+- air quality levels  
+- delivery activity patterns  
+- platform operational signals  
 
-By combining automated disruption detection, dynamic risk-based pricing, and instant claim processing, Safra creates a scalable insurance model that provides gig workers with reliable financial protection during unpredictable operational disruptions.
+These signals are aggregated into a composite risk metric called the **Gig Worker Disruption Index (GWDI)**.
 
-## System Workflow
+### Gig Worker Disruption Index (GWDI)
 
-The Safra platform operates through an automated workflow that continuously monitors disruption conditions and compensates delivery partners when income loss occurs.
+The **GWDI** represents the disruption risk in a delivery zone. It combines multiple risk factors into a single score between **0 and 1**.
+GWDI =
+0.35 × weather_risk +
+0.25 × pollution_risk +
+0.20 × traffic_risk +
+0.20 × delivery_activity_drop
 
-### 1. Worker Registration
-Delivery partners sign up on the Safra platform and provide basic details such as their city, delivery platform (e.g., Zepto), and operational zone.
+Higher GWDI values indicate a **greater probability of disruption** affecting delivery workers.
 
-### 2. Risk Assessment
-The system evaluates the operational risk of the worker’s delivery zone using historical environmental and activity data. An AI-based risk model generates a **risk score** that represents the likelihood of disruptions in that area.
+| GWDI Score | Risk Level | System Behavior |
+|-------------|-------------|----------------|
+| 0.0 – 0.3 | Low Risk | Normal operation |
+| 0.3 – 0.6 | Moderate Risk | Monitoring + early alerts |
+| 0.6 – 1.0 | High Risk | Disruption trigger likely |
 
-### 3. Dynamic Premium Calculation
-Based on the risk score, Safra calculates a **weekly insurance premium**. Workers operating in safer zones pay lower premiums, while those in higher-risk areas receive adjusted pricing and coverage.
+### Predictive Disruption Intelligence
 
-### 4. Continuous Disruption Monitoring
-After enrollment, Safra continuously monitors external signals using integrated data sources such as:
+Unlike traditional insurance systems that react **after a disruption occurs**, Safra also provides **predictive risk alerts**.
 
-- Weather conditions (rainfall, temperature)
-- Air quality levels (AQI)
-- Delivery activity patterns
-- Platform operational status
+When the system predicts a high disruption probability in the next few hours, workers receive notifications such as:
 
-This monitoring is performed at regular intervals to detect disruption events affecting delivery operations.
+> “High rainfall risk expected in your zone in the next 2 hours.”
 
-### 5. Parametric Trigger Detection
-When predefined conditions are met—such as prolonged heavy rainfall, extreme heat, severe air pollution, delivery activity collapse, or platform downtime—the system identifies a disruption event. These triggers are validated using duration thresholds to ensure that only meaningful disruptions activate claims.
+This allows riders to:
 
-### 6. Disruption Detection & Claim Automation Pipeline
-Once a disruption is confirmed, Safra automatically calculates the payout based on the duration of the disruption and the worker’s coverage plan.
+- plan work breaks  
+- switch to nearby delivery zones  
+- avoid unsafe working conditions  
+
+### Automated Claim Triggering
+
+When disruption thresholds are reached, Safra automatically triggers compensation.
+
+No manual claim submission is required.
+
 ```mermaid
 flowchart LR
 
-%% DATA SOURCES
-subgraph DATA_INPUT["External Data Sources"]
-A1[Weather API]
-A2[AQI API]
-A3[Delivery Activity Signals]
-end
+A[External Signals] --> B[Risk Processing Engine]
 
-%% DATA PROCESSING
-subgraph DATA_PROCESS["Data Collection Layer"]
-B1[Scheduler / Cron Job]
-B2[Signal Aggregator]
-end
+B --> C[GWDI Calculation]
 
-%% FEATURE ENGINEERING
-subgraph FEATURE_LAYER["Feature Processing"]
-C1[Weather Feature Extraction]
-C2[Environmental Risk Metrics]
-C3[Delivery Activity Analysis]
-end
+C --> D{Disruption Threshold}
 
-%% TRIGGER ENGINE
-subgraph TRIGGER_LAYER["Disruption Detection Engine"]
-D1[Trigger Evaluation Logic]
-D2{Disruption Conditions Met?}
-end
+D -->|No| E[Continue Monitoring]
 
-%% TRIGGERS
-subgraph TRIGGERS["Parametric Triggers"]
-E1[Heavy Rainfall]
-E2[Extreme Heat]
-E3[Severe AQI]
-E4[Delivery Activity Collapse]
-E5[Platform Downtime]
-end
+D -->|Yes| F[Parametric Claim Trigger]
 
-%% CLAIM SYSTEM
-subgraph CLAIM_LAYER["Claim Automation"]
-F1[Claim Processor]
-F2[Payout Calculation Engine]
-end
+F --> G[Payout Calculation]
 
-%% FRAUD
-subgraph FRAUD_LAYER["Fraud Detection"]
-G1[Fraud Detection Model]
-end
-
-%% PAYOUT
-subgraph PAYOUT_LAYER["Compensation"]
-H1[Worker Compensation]
-H2[Razorpay Sandbox Payment]
-end
-
-%% FLOW
-A1 --> B2
-A2 --> B2
-A3 --> B2
-
-B1 --> B2
-
-B2 --> C1
-B2 --> C2
-B2 --> C3
-
-C1 --> D1
-C2 --> D1
-C3 --> D1
-
-D1 --> D2
-
-D2 --> E1
-D2 --> E2
-D2 --> E3
-D2 --> E4
-D2 --> E5
-
-E1 --> F1
-E2 --> F1
-E3 --> F1
-E4 --> F1
-E5 --> F1
-
-F1 --> G1
-G1 --> F2
-
-F2 --> H1
-H1 --> H2
-
-%% DARK THEME STYLING
-%% Backgrounds: #1a1a1a (Dark Gray) 
-%% Strokes: Neon variants for readability
-
-style DATA_INPUT fill:#1a1a1a,stroke:#4dabf7,stroke-width:2px,color:#fff
-style DATA_PROCESS fill:#1a1a1a,stroke:#51cf66,stroke-width:2px,color:#fff
-style FEATURE_LAYER fill:#1a1a1a,stroke:#fcc419,stroke-width:2px,color:#fff
-style TRIGGER_LAYER fill:#1a1a1a,stroke:#be4bdb,stroke-width:2px,color:#fff
-style TRIGGERS fill:#1a1a1a,stroke:#ff6b6b,stroke-width:2px,color:#fff
-style CLAIM_LAYER fill:#1a1a1a,stroke:#20c997,stroke-width:2px,color:#fff
-style FRAUD_LAYER fill:#1a1a1a,stroke:#fab005,stroke-width:2px,color:#fff
-style PAYOUT_LAYER fill:#1a1a1a,stroke:#adb5bd,stroke-width:2px,color:#fff
-
-%% Node specific styling to ensure text remains white
-classDef default fill:#2d2d2d,stroke:#555,color:#fff;
+G --> H[Instant Worker Compensation]
 ```
-### 7. Instant Compensation
-The calculated compensation is credited to the worker through the platform’s payout system, ensuring that delivery partners receive financial support without needing to manually file claims.
+```mermaid
 
-## Parametric Trigger System
+flowchart LR
+    subgraph Capabilities["🔑 Key Capabilities"]
+        A["Dynamic Risk Assessment\nAI models estimate disruption\nprobability in each delivery zone"]
+        B[" Automated Claim Processing\nClaims trigger automatically\nwhen thresholds are reached"]
+        C[" Predictive Alerts\nWorkers receive early warnings\nfor upcoming disruptions"]
+        D[" Zone Intelligence\nRisk is calculated at the\nzone level, not city level"]
+        E[" Instant Compensation\nPayouts are credited automatically\nthrough the platform"]
+    end
 
-Safra uses a **parametric insurance model**, where payouts are automatically triggered when predefined disruption conditions are detected. Instead of requiring workers to manually file claims, the platform continuously monitors external signals and activates compensation when specific thresholds are met.
+    A --> B --> C --> D --> E
+```
+By combining predictive analytics, parametric triggers, and automated payouts, Safra transforms insurance from a reactive process into a real-time income protection system for gig workers.
 
-Each trigger is evaluated at regular intervals to determine whether a disruption has persisted long enough to affect delivery operations. This ensures that only meaningful disruptions result in insurance payouts.
+## System Workflow
 
-The system monitors the following disruption triggers:
+Safra operates through an automated workflow that continuously monitors disruption signals and compensates delivery partners when income loss occurs.
 
-### 1. Heavy Rainfall
-Heavy rainfall can significantly impact road conditions and reduce delivery activity.
+The platform integrates **worker registration, AI-driven risk assessment, disruption monitoring, and automated payouts** into a single pipeline.
 
-**Trigger Condition:**
-- Rainfall intensity greater than **50 mm/hour**
-- Persists for **at least 2 consecutive hours**
+### Workflow Steps
 
-### 2. Extreme Heat
-High temperatures can create unsafe working conditions for delivery partners and reduce operational capacity.
+1. **Worker Registration**
 
-**Trigger Condition:**
-- Temperature greater than **42°C**
-- Persists for **at least 2 consecutive hours**
+Delivery partners register on the Safra platform and provide basic information such as:
 
-### 3. Severe Air Pollution
-Dangerously high air pollution levels can make outdoor work hazardous and reduce delivery operations.
+- city
+- delivery platform (Zepto, Blinkit, Instamart)
+- operational delivery zone
 
-**Trigger Condition:**
-- Air Quality Index (AQI) greater than **350**
-- Persists for **at least 2 consecutive hours**
+This information is used to initialize the rider profile and policy configuration.
 
-### 4. Delivery Activity Collapse
-A sudden drop in delivery activity indicates that workers are unable to earn income due to operational disruptions.
+---
 
-**Trigger Condition:**
-- Delivery orders per hour drop by **70% or more**
-- Persists for **at least 2 consecutive hours**
+2. **Zone-Level Risk Assessment**
 
-### 5. Platform Downtime
-Platform outages or system failures can prevent riders from receiving orders.
+The system evaluates the operational risk of the rider’s delivery zone using historical and real-time data sources such as:
 
-**Trigger Condition:**
-- Delivery orders per hour equal **zero**
-- Persists for **at least 1 hour**
+- rainfall trends  
+- temperature patterns  
+- air pollution levels  
+- delivery activity signals  
 
-By combining environmental signals with operational data, Safra ensures that compensation is triggered only when disruptions genuinely affect a worker’s ability to earn income.
+An AI model generates a **risk score** representing the likelihood of disruption events in that zone.
 
-## Insurance Model
+---
 
-Safra follows a **weekly micro-insurance model** tailored to the working patterns of gig delivery workers. Since most delivery partners operate on weekly earning cycles, the platform provides a simple and flexible insurance plan that workers can subscribe to on a weekly basis.
+3. **Dynamic Premium Calculation**
 
-### Weekly Premium
+Based on the calculated risk score, Safra determines the **weekly insurance premium** for the worker.
 
-Safra uses an **AI-driven dynamic pricing model** to determine the weekly premium for each worker. The premium is calculated based on the operational risk of the rider’s delivery zone.
+Premiums are determined **per delivery zone**, not per city, ensuring fair pricing based on actual operational risk.
 
-Workers operating in areas with higher historical disruption risk (such as frequent heavy rainfall or severe pollution) may receive slightly higher premiums, while riders in lower-risk zones benefit from reduced pricing.
+---
 
-Typical premium range:
+4. **Continuous Signal Monitoring**
 
-- **Low Risk Zones:** ₹20 / week  
-- **Moderate Risk Zones:** ₹30 / week  
-- **High Risk Zones:** ₹45 / week  
+Safra continuously monitors external data streams including:
 
-### Coverage Amount
+- Weather APIs  
+- Air Quality APIs  
+- Delivery activity signals  
+- platform operational signals  
 
-Each enrolled worker receives coverage for **income loss caused by disruption events**. Safra provides protection of:
+These signals are evaluated periodically by the system to detect disruption conditions.
 
-**₹400 per disruption day**
+---
 
-This amount represents partial income replacement to support delivery partners during operational interruptions.
+5. **Disruption Risk Analysis**
 
-### Duration-Based Compensation
+The monitored signals are processed by the **Risk Processing Engine**, which computes the **Gig Worker Disruption Index (GWDI)**.
 
-Safra calculates compensation **proportionally to the duration of the disruption**. Instead of paying a fixed amount for the entire day, the system calculates payouts based on how long the disruption affects delivery activity.
+The GWDI aggregates multiple environmental and operational signals into a single disruption probability score.
 
-Example calculation:
+---
 
-- Daily coverage: **₹400**
-- Estimated working hours: **10 hours**
-- Hourly compensation: **₹40 per hour**
+6. **Parametric Trigger Evaluation**
 
-If a disruption lasts **3 hours**, the worker receives:
+If disruption conditions persist beyond predefined thresholds, the system activates a **parametric trigger**.
 
-### Weekly Payout Limit
+Examples include:
 
-To ensure sustainability of the insurance pool, Safra defines a **maximum payout cap per worker per week**.
+- heavy rainfall
+- extreme heat
+- severe air pollution
+- delivery activity collapse
+- platform downtime
 
-**Maximum weekly payout: ₹2000**
+Only disruptions that persist long enough to meaningfully affect worker income activate claims.
 
-This structure allows workers to receive meaningful support during disruptions while maintaining a balanced and scalable insurance model.
+---
 
-## AI Components
+7. **Automated Claim Processing**
 
-Safra integrates multiple AI-driven components to improve risk assessment, automate pricing decisions, and maintain the integrity of the insurance system. These components enable the platform to dynamically adapt to environmental and operational conditions affecting gig delivery workers.
+Once a disruption is confirmed:
 
-### 1. Risk Prediction Model
+- the claim processor calculates compensation
+- payout is determined based on **disruption duration**
+- fraud checks are applied before payout approval
 
-Safra uses a machine learning model to estimate the **disruption risk of a delivery zone**. The model analyzes environmental and operational data to produce a **risk score** representing the likelihood of disruption events.
+---
 
-Example input features include:
+8. **Instant Compensation**
 
-- Historical rainfall patterns
-- Temperature trends
-- Air Quality Index (AQI)
-- Delivery activity levels
-- Zone-specific environmental risks
+After verification, compensation is credited to the worker through the platform’s payout system.
 
-The model outputs a **risk score between 0 and 1**, which represents the probability of disruption in the worker’s operational area.
+This ensures that workers receive financial support **without filing manual claims**.
 
-### 2. Dynamic Premium Calculation
+---
 
-The calculated risk score is used to determine the **weekly insurance premium** for each worker. This ensures that pricing is proportional to the risk exposure of the delivery zone.
-
-Workers operating in safer zones receive **lower premiums**, while those in high-risk zones are priced accordingly to maintain the sustainability of the insurance pool.
-
-This dynamic pricing approach ensures fairness while enabling Safra to scale across different cities and operational environments.
-
-### 3. Fraud Detection System
-
-To prevent misuse of the insurance system, Safra incorporates an **AI-based fraud detection mechanism** that analyzes claim patterns and operational data.
-
-The system evaluates signals such as:
-
-- abnormal claim frequency
-- inconsistencies between environmental data and claim triggers
-- unusual delivery activity patterns
-- duplicate claim attempts
-
-An anomaly detection model identifies suspicious claims and flags them for further verification, helping maintain trust and stability in the platform.
-
-Together, these AI components enable Safra to deliver a reliable, automated insurance experience while ensuring that payouts are fair, accurate, and resistant to fraud.
-
-## Technology Stack
-
-Safra is designed using a modular architecture that separates application logic, AI processing, and data storage. This approach allows the system to efficiently process disruption signals, run machine learning models, and manage insurance operations.
-
-### Frontend
-
-The user interface is built using **React**, providing a responsive web application that allows delivery partners to:
-
-- Register and enroll in insurance coverage
-- View their policy details
-- Monitor disruption events and payouts
-
-The interface is designed to be **mobile-friendly**, ensuring accessibility for gig workers who primarily use smartphones.
-
-### Backend API Gateway
-
-The core backend services are implemented using **Node.js with Express**. This layer acts as the main API gateway responsible for handling:
-
-- user authentication and registration
-- policy creation and management
-- disruption trigger evaluation
-- payout calculation
-- communication with AI services
-
-Express middleware is used to manage request handling, validation, and orchestration between system components.
-
-### AI Microservices
-
-All machine learning components are implemented using **Python with FastAPI**. This service is responsible for running AI models that support the insurance system.
-
-These models perform tasks such as:
-
-- disruption risk prediction for delivery zones
-- dynamic premium calculation
-- anomaly detection for fraud prevention
-
-The FastAPI service exposes endpoints that allow the Node.js backend to request predictions and validations from the AI models.
-
-### Database
-
-Safra uses **Firebase Firestore** as its primary cloud database. Firestore stores structured application data including:
-
-- user profiles
-- insurance policies
-- disruption monitoring logs
-- claim records
-- payout history
-
-Firebase is chosen for its scalability, real-time capabilities, and ease of integration with web applications.
-
-### External Data Sources
-
-The platform integrates multiple external APIs to monitor environmental and operational signals, including:
-
-- **Weather APIs** for rainfall and temperature data
-- **Air Quality APIs** for AQI monitoring
-- **Delivery activity signals** for detecting operational disruptions
-
-These data streams allow Safra to continuously evaluate disruption conditions and trigger automated claims when necessary.
-
-### Payment Simulation
-
-For demonstration purposes, Safra integrates a **payment gateway sandbox (such as Razorpay test mode)** to simulate instant payouts to delivery partners.
-
-## System Architecture Overview
-
-Safra follows a modular service-oriented architecture that separates the user interface, application logic, AI services, and data storage. This design ensures that the system remains scalable, maintainable, and capable of processing disruption signals in real time.
-
-## System Architecture
+### Workflow Diagram
 
 ```mermaid
-flowchart TD
+flowchart LR
 
-%% USER LAYER
-subgraph USER_LAYER["User Layer"]
-A[Delivery Partner]
-end
+A[Worker Registration] --> B[Zone Risk Assessment]
 
-%% FRONTEND
-subgraph FRONTEND_LAYER["Frontend"]
-B[React Web Application]
-end
+B --> C[Dynamic Premium Calculation]
 
-%% BACKEND
-subgraph BACKEND_LAYER["API Gateway - Node.js / Express"]
-C1[Authentication & User Management]
-C2[Policy Manager]
-C3[Trigger Engine]
-C4[Claim Processor]
-C5[Scheduler / Cron Jobs]
-end
+C --> D[Continuous Signal Monitoring]
 
-%% AI SERVICE
-subgraph AI_LAYER["AI Microservice - FastAPI"]
-D1[Risk Prediction Model]
-D2[Dynamic Premium Model]
-D3[Fraud Detection Model]
-end
+D --> E[Risk Processing Engine]
 
-%% DATA LAYER
-subgraph DATA_LAYER["Cloud Database"]
-E[Firebase Firestore]
-end
+E --> F[GWDI Calculation]
 
-%% EXTERNAL DATA
-subgraph EXTERNAL_LAYER["External Data Sources"]
-F1[Weather API]
-F2[AQI API]
-F3[Delivery Activity Signals]
-end
+F --> G{Disruption Threshold Met?}
 
-%% PAYMENT
-subgraph PAYMENT_LAYER["Payment System"]
-G[Razorpay Sandbox]
-end
+G -->|No| D
 
-%% FLOW
-A --> B
-B --> C1
-C1 --> C2
-C2 --> E
+G -->|Yes| H[Parametric Claim Trigger]
 
-C3 --> F1
-C3 --> F2
-C3 --> F3
+H --> I[Claim Processor]
 
-C5 --> C3
+I --> J[Fraud Detection]
 
-C3 --> C4
-C4 --> E
+J --> K[Payout Calculation]
 
-C2 --> D1
-C2 --> D2
-C4 --> D3
-
-D1 --> E
-D2 --> E
-D3 --> C4
-
-C4 --> G
-
-%% DARK THEME STYLING
-%% Using #1a1a1a for containers and #2d2d2d for nodes
-style USER_LAYER fill:#1a1a1a,stroke:#4dabf7,stroke-width:2px,color:#fff
-style FRONTEND_LAYER fill:#1a1a1a,stroke:#51cf66,stroke-width:2px,color:#fff
-style BACKEND_LAYER fill:#1a1a1a,stroke:#fcc419,stroke-width:2px,color:#fff
-style AI_LAYER fill:#1a1a1a,stroke:#be4bdb,stroke-width:2px,color:#fff
-style DATA_LAYER fill:#1a1a1a,stroke:#adb5bd,stroke-width:2px,color:#fff
-style EXTERNAL_LAYER fill:#1a1a1a,stroke:#ff6b6b,stroke-width:2px,color:#fff
-style PAYMENT_LAYER fill:#1a1a1a,stroke:#20c997,stroke-width:2px,color:#fff
-
-%% Node specific styling
-classDef default fill:#2d2d2d,stroke:#444,color:#fff;
-```
-> **Figure:** High-level architecture of Safra showing the interaction between the React client, Node.js API gateway, FastAPI AI services, Firebase data layer, and external disruption signals used for parametric insurance triggers.
-
-### Frontend Layer
-
-The **React frontend** provides the user interface for delivery partners. Through this interface, workers can register, enroll in weekly insurance coverage, view their policy details, and track disruption-triggered payouts. The frontend communicates with the backend through secure API requests.
-
-### API Gateway Layer
-
-The **Node.js + Express backend** acts as the main API gateway of the platform. This layer is responsible for coordinating the core business logic of the system, including:
-
-- user registration and authentication
-- insurance policy management
-- disruption trigger evaluation
-- payout calculation
-- communication with AI services
-
-The backend also runs scheduled tasks that periodically fetch environmental and operational data required for disruption monitoring.
-
-### AI Service Layer
-
-Machine learning models are hosted as a separate **FastAPI-based AI microservice**. This service handles all AI-related computations, including:
-
-- disruption risk prediction
-- dynamic premium calculation
-- fraud detection and anomaly analysis
-
-The Node.js backend communicates with this service through REST APIs whenever AI predictions are required.
-
-### Data Layer
-
-All platform data is stored in **Firebase Firestore**, which manages structured records such as:
-
-- user profiles
-- insurance policies
-- disruption monitoring logs
-- claims and payouts
-
-Firestore enables scalable data storage and supports real-time updates when disruption events are detected.
-
-### External Data Integration
-
-Safra continuously integrates external data sources to monitor disruption signals affecting delivery operations. These include:
-
-- weather APIs for rainfall and temperature data
-- air quality APIs for AQI monitoring
-- delivery activity signals used to detect operational disruptions
-
-These signals feed into the disruption detection engine, allowing the system to automatically evaluate trigger conditions.
-
-### System Flow
-
-The high-level architecture flow of Safra is:
-
-React Frontend
-↓
-Node.js / Express API Gateway
-↓
-FastAPI AI Microservices
-↓
-Firebase Firestore Database
-
-This architecture enables Safra to automate disruption detection, process insurance claims, and deliver payouts efficiently while maintaining a clear separation between application logic and AI computation.
-
-## Future Scope
-
-While Safra demonstrates the core concept of automated parametric insurance for gig workers, the platform can be extended in several ways to improve accuracy, scalability, and real-world adoption.
-
-### Advanced Risk Modeling
-
-Future versions of Safra can incorporate larger historical datasets to improve the accuracy of disruption risk prediction. Integrating long-term weather patterns, seasonal trends, and city-level operational data would allow the platform to generate more precise premium pricing and risk assessments.
-
-### Real Platform Integrations
-
-Safra can integrate directly with delivery platforms such as Zepto, Blinkit, or Instamart to access real-time operational signals. This would enable more reliable detection of delivery activity disruptions and reduce reliance on simulated datasets.
-
-### Expanded Coverage Models
-
-The insurance model can be expanded to support multiple coverage tiers, allowing workers to choose different levels of protection based on their income patterns and work schedules.
-
-### Geographic Expansion
-
-The system can be extended to support multiple cities and regions by incorporating location-specific environmental risk models and regional disruption datasets.
-
-### Real-Time Payout Infrastructure
-
-Future implementations can integrate production-grade payment systems and digital wallets to enable instant compensation transfers to delivery partners when disruption events are detected.
-
-By continuously improving its data sources, AI models, and platform integrations, Safra has the potential to evolve into a scalable insurance infrastructure designed specifically for the rapidly growing gig economy.
-
-## Development Roadmap
-
-The development of Safra is structured as a phased roadmap that gradually builds the core components of the platform. Each stage focuses on implementing and integrating key system capabilities, from initial research and architecture design to disruption detection and automated payouts.
-
-### Safra Development Roadmap
-
-```mermaid
-timeline
-title Safra Development Roadmap
-
-Week 1 : Problem Research
-        : Persona Definition
-        : Architecture Design
-        : Tech Stack Finalization
-
-Week 2 : Frontend Setup
-        : Backend API Gateway Setup
-        : Firebase Database Integration
-        : Basic UI for Worker Registration
-        : Initial Risk Model Prototype
-
-Week 3 : AI Model Development
-        : Risk Prediction Model
-        : Dynamic Premium Calculation Model
-        : Fraud Detection Model
-        : FastAPI AI Microservice Deployment
-
-Week 4 : Trigger Engine Implementation
-        : Weather API Integration
-        : AQI API Integration
-        : Delivery Activity Monitoring
-        : Disruption Detection Logic
-
-Week 5 : Claim Automation System
-        : Claim Processor Development
-        : Duration-Based Payout Logic
-        : Razorpay Sandbox Integration
-        : Worker Dashboard
-
-Week 6 : System Testing & Optimization
-        : Fraud Detection Validation
-        : End-to-End System Integration
-        : Performance Optimization
-        : Final Demo Preparation
+K --> L[Instant Worker Compensation]
 ```
