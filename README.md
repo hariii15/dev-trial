@@ -1,4 +1,4 @@
-# Safra — AI-Powered Parametric Insurance for Gig Delivery Workers
+# Safra - AI-Powered Parametric Insurance for Gig Delivery Workers
 
 Safra is an **AI-driven parametric micro-insurance platform** designed to protect the income of **quick-commerce delivery partners** working for platforms such as **Zepto, Blinkit, and Instamart**.
 
