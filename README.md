@@ -130,7 +130,7 @@ G --> H[Instant Worker Compensation]
 ```mermaid
 
 flowchart LR
-    subgraph Capabilities["🔑 Key Capabilities"]
+    subgraph Capabilities["Key Capabilities"]
         A["Dynamic Risk Assessment\nAI models estimate disruption\nprobability in each delivery zone"]
         B[" Automated Claim Processing\nClaims trigger automatically\nwhen thresholds are reached"]
         C[" Predictive Alerts\nWorkers receive early warnings\nfor upcoming disruptions"]
