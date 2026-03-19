@@ -1,4 +1,4 @@
-# Safra — AI-Powered Parametric Insurance for Gig Delivery Workers
+# Safra - AI-Powered Parametric Insurance for Gig Delivery Workers
 
 Safra is an **AI-driven parametric micro-insurance platform** designed to protect the income of **quick-commerce delivery partners** working for platforms such as **Zepto, Blinkit, and Instamart**.
 
@@ -130,7 +130,7 @@ G --> H[Instant Worker Compensation]
 ```mermaid
 
 flowchart LR
-    subgraph Capabilities["🔑 Key Capabilities"]
+    subgraph Capabilities["Key Capabilities"]
         A["Dynamic Risk Assessment\nAI models estimate disruption\nprobability in each delivery zone"]
         B[" Automated Claim Processing\nClaims trigger automatically\nwhen thresholds are reached"]
         C[" Predictive Alerts\nWorkers receive early warnings\nfor upcoming disruptions"]
@@ -524,6 +524,51 @@ Safra includes an **AI-based anomaly detection system** that monitors claim patt
 
 Suspicious cases are automatically flagged for review.
 
+## Adversarial Defense & Anti-Spoofing Strategy
+
+To counter coordinated GPS spoofing and syndicate-led "liquidity draining" attacks, Safra utilizes a **Multi-Factor Presence Validation (MFPV)** engine. This moves beyond basic GPS coordinates to analyze the "physicality" of the rider’s presence and device integrity.
+
+### 1. Multi-Signal Identification (The Differentiation)
+Instead of trusting the OS-reported location, the system validates the "Internet Metadata" and "Hardware Signature":
+
+* **Network Triangulation:** The system captures the list of visible Wi-Fi SSIDs and Cell Tower IDs (MCC/MNC/LAC/CID). If the GPS says "Red-Alert Zone" but the Wi-Fi environment matches a "Residential Zone," the claim is flagged.
+* **Device Fingerprinting:** We track IP addresses and MAC addresses. If a cluster of 500 riders reports identical network subnets or VPN exit nodes, the system identifies a coordinated syndicate.
+* **Physics Consistency:** AI analyzes the accelerometer and gyroscope data. A spoofing app usually "teleports" or moves in a mathematically perfect straight line. Real human movement in a storm is erratic, slow, and includes micro-vibrations.
+
+### 2. The UX Balance (Escrow & Verification)
+To ensure we do not unfairly penalize honest gig workers who might be experiencing a genuine network drop in bad weather, we use a "Soft-Flag" workflow:
+
+* **Verification Escrow:** Flagged claims are not rejected; they are moved to a "Pending" state.
+* **Proof-of-Life (POL):** The app sends a high-priority notification asking the rider to perform a 1-tap "Environmental Check-in" or a 5-second video snippet of the weather.
+* **Trust-Score Elasticity:** Riders with a high historical **Trust Score** bypass intensive checks, while new accounts or those with "Syndicate-like" patterns face mandatory verification.
+
+```mermaid
+flowchart TD
+    subgraph Input_Layer ["Signal Collection"]
+        GPS[GPS Coordinates]
+        NET[Network Metadata: Wi-Fi/Cell Tower]
+        SEN[Sensor Data: Accelerometer/Gyro]
+    end
+
+    subgraph Defense_Engine [" Adversarial Defense Engine"]
+        V1{Physics Check}
+        V2{Network Triangulation}
+        V3{Syndicate Pattern AI}
+        
+        GPS --> V1
+        SEN --> V1
+        NET --> V2
+        GPS --> V2
+        V1 & V2 --> V3
+    end
+
+    subgraph Decision_Logic ["Payout Decision"]
+        V3 -->|Pass| P[Instant Payout]
+        V3 -->|Flagged| E[Escrow / Verification]
+        E -->|Success| P
+        E -->|Fail| R[Fraud Report / Ban]
+    end
+```
 ---
 
 ## 6. Rider Trust Score
