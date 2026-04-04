@@ -13,6 +13,17 @@ export default function RiskCard({ risk }) {
     return "badge";
   };
 
+  const getActiveTriggers = () => {
+    const triggers = [];
+    if ((breakdown.rain ?? breakdown.rain_risk ?? 0) > 0.6) triggers.push("Heavy Rain Risk");
+    if ((breakdown.pollution ?? breakdown.pollution_risk ?? 0) > 0.6) triggers.push("Severe Pollution");
+    if ((breakdown.activity ?? breakdown.activity_risk ?? 0) > 0.7) triggers.push("Activity Collapse Risk");
+    if ((breakdown.heat ?? breakdown.heat_risk ?? 0) > 0.6) triggers.push("Extreme Heat Risk");
+    return triggers;
+  };
+
+  const activeTriggers = getActiveTriggers();
+
   return (
     <div className="card">
       <div className="card-header">
@@ -20,6 +31,16 @@ export default function RiskCard({ risk }) {
         <span className={getLevelClass()}>{level}</span>
       </div>
       <p className="gwdi-score">GWDI: {gwdi?.toFixed?.(3) ?? "-"}</p>
+      {activeTriggers.length > 0 && (
+        <div className="triggers-list">
+          <h4>Active Triggers:</h4>
+          <div className="triggers-badges">
+            {activeTriggers.map((trigger, idx) => (
+              <span key={idx} className="badge badge-high">{trigger}</span>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="breakdown-grid">
         <div>
           <span className="label">Rain</span>

@@ -6,6 +6,12 @@ export default function ClaimsTable({ claims }) {
     </div>
   );
 
+  const getGwdiClass = (gwdi) => {
+    if (gwdi < 0.3) return 'gwdi-low';
+    if (gwdi <= 0.6) return 'gwdi-medium';
+    return 'gwdi-high';
+  };
+
   return (
     <div className="card">
       <h3>Claims History</h3>
@@ -16,6 +22,7 @@ export default function ClaimsTable({ claims }) {
             <th>GWDI</th>
             <th>Payout</th>
             <th>Reason</th>
+            <th>Triggered By</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -23,9 +30,10 @@ export default function ClaimsTable({ claims }) {
           {claims.map((c) => (
             <tr key={c.id}>
               <td>{new Date(c.timestamp?.toDate?.() ?? c.timestamp).toLocaleString()}</td>
-              <td>{c.gwdi_score?.toFixed?.(3)}</td>
+              <td className={getGwdiClass(c.gwdi_score)}>{c.gwdi_score?.toFixed?.(3)}</td>
               <td>₹{c.payout?.toFixed?.(2)}</td>
               <td>{c.reason}</td>
+              <td>{c.triggered_by}</td>
               <td>{c.status}</td>
             </tr>
           ))}

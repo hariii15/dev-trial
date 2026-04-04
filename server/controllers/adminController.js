@@ -1,3 +1,4 @@
+import { processAllClaims, runClaimTest as runClaimTestService } from "../services/claimsProcessorService.js";
 import { firestore } from "../config/firebase.js";
 import { buildFeaturesAndPredict } from "../services/featureBuilderService.js";
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
@@ -160,6 +161,16 @@ export const runClaimsEngine = async (req, res) => {
   }
 };
 
+export const runClaimTest = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { gwdi_score, activity } = req.body || {};
+
+    const result = await runClaimTestService({
+      userId,
+      gwdi_score,
+      activity,
+      triggeredBy: "admin-test"
 // POST /api/admin/run-claim/:userId  (single user)
 export const runClaimForUser = async (req, res) => {
   try {

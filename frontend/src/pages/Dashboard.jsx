@@ -79,7 +79,7 @@ export default function Dashboard({ user }) {
         plan: profile.plan,
         trust_score: profile.trust_score ?? 0.5
       });
-      setPricing(res.data?.pricing ?? res.data ?? res);
+      setPricing(res.data);
       setRisk(res.data?.gwdi ?? null);
     } catch (e) {
       console.error(e);
@@ -146,7 +146,7 @@ export default function Dashboard({ user }) {
 
         <section className="cards-row">
           <RiskCard risk={risk} />
-          <PremiumCard pricing={pricing} />
+          <PremiumCard pricing={pricing} risk={risk} />
         </section>
 
         <section className="claims-row">
