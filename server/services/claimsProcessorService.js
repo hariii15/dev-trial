@@ -43,7 +43,19 @@ export const processAllClaims = async ({ triggeredBy = "manual-admin" } = {}) =>
     const eligible = gwdi_score > 0.5 || activity > 0.7;
     if (!eligible) continue;
 
-    // 3) simple payout logic by plan
+    // 3) determine primary trigger for reason
+    let reason = "High GWDI score detected";
+    if (activity > 0.7) {
+      reason = "Activity collapse detected";
+    } else if (breakdown?.rain > 0.7) {
+      reason = "Heavy rain disruption detected";
+    } else if (breakdown?.pollution > 0.7) {
+      reason = "High pollution levels detected";
+    } else if (breakdown?.heat > 0.7) {
+      reason = "Extreme heat conditions detected";
+    }
+
+    // 4) simple payout logic by plan
     let base = 100; // example
     if (user.plan === "standard") base = 200;
     if (user.plan === "premium") base = 300;
@@ -69,7 +81,7 @@ export const processAllClaims = async ({ triggeredBy = "manual-admin" } = {}) =>
         timestamp: new Date().toISOString(),
         gwdi_score,
         payout,
-        reason: "High activity disruption detected",
+        reason,
         triggered_by: triggeredBy,
         status: "APPROVED"
       });

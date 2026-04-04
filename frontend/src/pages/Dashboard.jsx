@@ -101,7 +101,7 @@ export default function Dashboard({ user }) {
 
         <section className="cards-row">
           <RiskCard risk={risk} />
-          <PremiumCard pricing={pricing} />
+          <PremiumCard pricing={pricing} risk={risk} />
         </section>
 
         <section className="claims-row">
