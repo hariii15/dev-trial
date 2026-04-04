@@ -1,7 +1,16 @@
 export default function PremiumCard({ pricing }) {
   if (!pricing) return null;
 
-  const data = pricing.data ?? pricing;
+  const data = pricing.pricing ?? pricing;
+  const plan = pricing.plan ?? 'basic';
+
+  const coverageMap = {
+    basic: 200,
+    standard: 400,
+    premium: 700
+  };
+
+  const coverage = coverageMap[plan.toLowerCase()] || 200;
 
   return (
     <div className="card">
@@ -9,6 +18,12 @@ export default function PremiumCard({ pricing }) {
         <h3>Weekly Premium</h3>
       </div>
       <p className="premium-value">₹{data.premium?.toFixed?.(2) ?? "-"}</p>
+      <div className="plan-info">
+        <strong>Plan:</strong> {plan.charAt(0).toUpperCase() + plan.slice(1)} (₹{coverage}/day coverage)
+      </div>
+      <p className="coverage-text">
+        This plan protects up to ₹{coverage} per disruption day, with a weekly payout cap of ₹2000.
+      </p>
       <div className="breakdown-grid">
         <div>
           <span className="label">Base Price</span>

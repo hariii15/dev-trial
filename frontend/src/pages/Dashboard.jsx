@@ -64,7 +64,7 @@ export default function Dashboard({ user }) {
         plan: profile.plan,
         trust_score: profile.trust_score ?? 0.5
       });
-      setPricing(res.data?.pricing ?? res.data ?? res);
+      setPricing(res.data);
       setRisk(res.data?.gwdi ?? null);
     } catch (e) {
       console.error(e);

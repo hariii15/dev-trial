@@ -202,6 +202,19 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.plan-info {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+}
+
+.coverage-text {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
 .breakdown-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
