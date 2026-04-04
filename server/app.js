@@ -3,6 +3,7 @@ import cors from "cors";
 import riskRoutes from "./routes/riskRoutes.js";
 import featureBuilderRoutes from "./routes/featureBuilderRoutes.js";
 import pricingRoutes from "./routes/pricingRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 import { requestLogger } from "./middleware/requestLogger.js";
 
 const app = express();
@@ -16,5 +17,6 @@ app.use(requestLogger);
 app.use("/api/risk", riskRoutes);
 app.use("/api/feature-builder", featureBuilderRoutes);
 app.use("/api/pricing", pricingRoutes);
+app.use("/api/admin", adminRoutes);
 
 export default app;
