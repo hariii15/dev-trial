@@ -117,7 +117,7 @@ export default function Admin({ user }) {
                 max="1"
                 step="0.01"
                 value={testGwdi}
-                onChange={(e) => setTestGwdi(e.target.value)}
+                onChange={(e) => setTestGwdi(parseFloat(e.target.value))}
               />
             </div>
             <div className="field-group">
@@ -128,8 +128,7 @@ export default function Admin({ user }) {
                 max="1"
                 step="0.01"
                 value={testActivity}
-                onChange={(e) => setTestActivity(e.target.value)}
-              />
+                onChange={(e) => setTestActivity(parseFloat(e.target.value))}              />
             </div>
             <button className="btn btn-secondary" onClick={handleRunTestClaim} disabled={!testUserId || loadingTest}>
               {loadingTest ? "Running Test..." : "Run Test Claim"}
@@ -139,8 +138,8 @@ export default function Admin({ user }) {
                 <p>
                   <strong>Result:</strong> {testResult.eligible ? "Eligible" : "Not eligible"}
                 </p>
-                <p>GWDI: {testResult.gwdi_score.toFixed(2)}</p>
-                <p>Activity: {testResult.activity.toFixed(2)}</p>
+                <p>GWDI: {Number(testGwdi).toFixed(2)}</p>
+                <p>Activity: {Number(testActivity).toFixed(2)}</p>
                 <p>Payout: ₹{testResult.payout?.toFixed?.(2) ?? "0.00"}</p>
                 <p>Reason: {testResult.reason}</p>
                 <p>Triggered By: {testResult.triggered_by}</p>

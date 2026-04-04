@@ -69,13 +69,13 @@ export const processClaimForUser = async ({
 // --- shared internal logic used by both functions ---
 const processClaimInternal = async ({ user, userId, triggeredBy }) => {
   // 24h duplicate check
-  if (user.last_claim_time) {
-    const last = new Date(user.last_claim_time).getTime();
-    if (Date.now() - last < ONE_DAY_MS) {
-      return { approved: false, payout: 0, reason: "recent_claim" };
-    }
-  }
   
+  // if (user.last_claim_time) {
+  //   const last = new Date(user.last_claim_time).getTime();
+  //   if (Date.now() - last < ONE_DAY_MS) {
+  //     return { approved: false, payout: 0, reason: "recent_claim" };
+  //   }
+  // }
 
   // feature builder call (zone + current time)
   const now = new Date();
@@ -161,16 +161,6 @@ export const runClaimsEngine = async (req, res) => {
   }
 };
 
-export const runClaimTest = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { gwdi_score, activity } = req.body || {};
-
-    const result = await runClaimTestService({
-      userId,
-      gwdi_score,
-      activity,
-      triggeredBy: "admin-test"
 // POST /api/admin/run-claim/:userId  (single user)
 export const runClaimForUser = async (req, res) => {
   try {
@@ -203,12 +193,12 @@ const processTestClaimInternal = async ({
   activity
 }) => {
   // 24h duplicate check (keep it so you don't spam the same user)
-  if (user.last_claim_time) {
-    const last = new Date(user.last_claim_time).getTime();
-    if (Date.now() - last < ONE_DAY_MS) {
-      return { approved: false, payout: 0, reason: "recent_claim" };
-    }
-  }
+  // if (user.last_claim_time) {
+  //   const last = new Date(user.last_claim_time).getTime();
+  //   if (Date.now() - last < ONE_DAY_MS) {
+  //     return { approved: false, payout: 0, reason: "recent_claim" };
+  //   }
+  // }
 
   const eligible = gwdi_score > 0.5 || activity > 0.7;
   if (!eligible) {
