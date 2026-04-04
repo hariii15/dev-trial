@@ -95,3 +95,52 @@ export const processAllClaims = async ({ triggeredBy = "manual-admin" } = {}) =>
 
   return { processed_users, claims_approved, total_payout };
 };
+
+export const runClaimTest = async ({ userId, gwdi_score, activity, triggeredBy = "admin-test" } = {}) => {
+  if (!userId) {
+    const err = new Error("'userId' is required");
+    err.statusCode = 400;
+    throw err;
+  }
+
+  const userRef = firestore.collection("users").doc(userId);
+  const userSnap = await userRef.get();
+
+  if (!userSnap.exists) {
+    const err = new Error(`User '${userId}' not found`);
+    err.statusCode = 404;
+    throw err;
+  }
+
+  const user = userSnap.data();
+  const gwdi = Number(gwdi_score ?? 0);
+  const act = Number(activity ?? 0);
+  const eligible = gwdi > 0.5 || act > 0.7;
+
+  let base = 100;
+  if (user.plan === "standard") base = 200;
+  if (user.plan === "premium") base = 300;
+
+  const payout = Number((base * gwdi).toFixed(2));
+
+  let reason = "High GWDI score detected";
+  if (act > 0.7) {
+    reason = "Activity collapse detected";
+  } else if (gwdi > 0.5) {
+    reason = "High GWDI score detected";
+  } else {
+    reason = "No disruption trigger reached";
+  }
+
+  return {
+    userId,
+    plan: user.plan,
+    zone: user.zone,
+    gwdi_score: gwdi,
+    activity: act,
+    eligible,
+    payout: eligible ? payout : 0,
+    reason,
+    triggered_by: triggeredBy
+  };
+};
